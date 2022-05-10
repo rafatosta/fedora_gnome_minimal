@@ -13,9 +13,9 @@ dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-
 dnf install -y fedora-workstation-repositories
 dnf config-manager -y --set-enabled fedora-cisco-openh264
 
-# Github Desktop
+# Github Desktop (repo quebrado)
 rpm --import https://mirror.mwt.me/ghd/gpgkey
-sh -c 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://packagecloud.io/shiftkey/desktop/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://mirror.mwt.me/ghd/gpgkey" > /etc/yum.repos.d/shiftkey-desktop.repo'
+sh -c 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://mirror.mwt.me/ghd/rpm\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://mirror.mwt.me/ghd/gpgkey" > /etc/yum.repos.d/shiftkey-desktop.repo'
 
 #VS Code 
  rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -26,16 +26,17 @@ sh -c 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://packagecloud.io
  dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge
  
  # Flatpak
+ dnf install flatpak
  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  
 # Instalando o Xorg base (suporte para VGA intel, radeon e nouveau)
 dnf install -y @base-x
 
 # Instalando pacote basicos gnome
-dnf install gdm gnome-shell gnome-terminal nautilus xdg-user-dirs-gtk gnome-tweaks
+dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg-user-dirs-gtk gnome-tweaks
 
 # Instalando programas pessoais
-dnf install megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code -y
+dnf install -y megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code 
 
 # Ativando o gdm e definindo como padrão
 systemctl enable gdm
@@ -43,3 +44,6 @@ systemctl set-default graphical.target
 
  #Desativa NetworkManager-wait-online.service
  systemctl disable NetworkManager-wait-online.service
+ 
+ # Reinicia a máquina
+ reboot
