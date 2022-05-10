@@ -42,6 +42,9 @@ dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg
 # Instalando programas pessoais
 dnf install -y megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code gnome-text-editor evince gnome-system-monitor gnome-clocks gnome-calendar gnome-calculator gnome-disk-utility
 
+# SceneBuild
+dnf install https://gluonhq.com/products/scene-builder/thanks/?dl=https://download2.gluonhq.com/scenebuilder/18.0.0/install/linux/SceneBuilder-18.0.0.rpm
+
 # Apps em flatpak
 flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager com.stremio.Stremio org.videolan.VLC org.eclipse.Java org.gnome.Solanum 
 
