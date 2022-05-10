@@ -4,6 +4,10 @@
 # do Fedora, a partir de uma INSTALACAO MINIMA da ISO Everything:
 #
 
+#Sincronizando o repositório
+# sudo dnf install git
+# git clone http://github.com/rafatosta/fedora_gnome_minimal
+
 # Desativando repositórios Modular para updates mais rápidos
 dnf config-manager --disable *-modular
 
@@ -36,7 +40,7 @@ dnf install -y @base-x
 dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg-user-dirs-gtk gnome-tweaks
 
 # Instalando programas pessoais
-dnf install -y megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code 
+dnf install -y megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code gnome-text-editor evince gnome-system-monitor gnome-clocks gnome-calendar gnome-calculator gnome-disk-utility
 
 # Ativando o gdm e definindo como padrão
 systemctl enable gdm
@@ -46,4 +50,4 @@ systemctl set-default graphical.target
  systemctl disable NetworkManager-wait-online.service
  
  # Reinicia a máquina
- reboot
+ #reboot
