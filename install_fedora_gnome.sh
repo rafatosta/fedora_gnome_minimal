@@ -43,7 +43,7 @@ dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg
 dnf install -y megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code gnome-text-editor evince gnome-system-monitor gnome-clocks gnome-calendar gnome-calculator gnome-disk-utility
 
 # Apps em flatpak
- flatpak install com.rtosta.zapzap com.mattjakeman.ExtensionManager com.stremio.Stremio org.videolan.VLC org.eclipse.Java -y
+flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager com.stremio.Stremio org.videolan.VLC org.eclipse.Java org.gnome.Solanum 
 
 # Ativando o gdm e definindo como padrão
 systemctl enable gdm
