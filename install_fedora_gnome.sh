@@ -36,17 +36,20 @@ sh -c 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://mirror.mwt.me/g
 # Instalando o Xorg base (suporte para VGA intel, radeon e nouveau)
 dnf install -y @base-x
 
-# Instalando pacote basicos gnome
+# Instalando pacote básicos gnome
 dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg-user-dirs-gtk gnome-tweaks
+
+# Aplicativos Qt com o Adwaita
+#dnf install adwaita-qt5 adwaita-qt6 
 
 # Instalando programas pessoais
 dnf install -y megasync nautilus-megasync telegram-desktop qt6-designer github-desktop microsoft-edge-stable code gnome-text-editor evince gnome-system-monitor gnome-clocks gnome-calendar gnome-calculator gnome-disk-utility
 
 # SceneBuild
-dnf install https://gluonhq.com/products/scene-builder/thanks/?dl=https://download2.gluonhq.com/scenebuilder/18.0.0/install/linux/SceneBuilder-18.0.0.rpm
+dnf install https://download2.gluonhq.com/scenebuilder/18.0.0/install/linux/SceneBuilder-18.0.0.rpm
 
 # Apps em flatpak
-flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager com.stremio.Stremio org.videolan.VLC org.eclipse.Java org.gnome.Solanum 
+flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager com.stremio.Stremio org.videolan.VLC org.eclipse.Java org.gnome.Solanum org.libreoffice.LibreOffice
 
 # Ativando o gdm e definindo como padrão
 systemctl enable gdm
@@ -55,5 +58,13 @@ systemctl set-default graphical.target
  #Desativa NetworkManager-wait-online.service
  systemctl disable NetworkManager-wait-online.service
  
+ # Desativa o repo intermediário do Edge
+ dnf config-manager --set-disable packages.microsoft.com_yumrepos_edge
+
+# Esconde o grub
+# edite o timeout em /etc/default/grub
+# execute: sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+
  # Reinicia a máquina
  #reboot
